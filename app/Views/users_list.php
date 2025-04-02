@@ -1,31 +1,7 @@
-<?php
-
-use Config\Database;
-
-$mysqli = mysqli_init();
-$dbconfig = new Database();
-
-// Obtenemos los datos desde la instancia de configuración
-$hostname = $dbconfig->default['hostname'];
-$port     = $dbconfig->default['port'];
-$user     = $dbconfig->default['username'];
-$password = $dbconfig->default['password'];
-$database = $dbconfig->default['database'];
-
-// Intentamos conectar con MySQL usando mysqli manualmente
-$mysqliConnected = $mysqli->real_connect($hostname, $user, $password, $database, $port, null, MYSQLI_CLIENT_SSL);
-
-if (!$mysqliConnected) {
-    die("<p>Error de conexión: " . htmlspecialchars($mysqli->connect_error) . "</p>");
-}
-
-$query = "SELECT user_id, name, email FROM users";
-$result = $mysqli->query($query);
-
-echo "<!DOCTYPE html>
-<html lang='es'>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset='UTF-8'>
+    <meta charset="UTF-8">
     <title>Lista de Usuarios</title>
     <style>
         body { font-family: Arial, sans-serif; }
@@ -35,29 +11,26 @@ echo "<!DOCTYPE html>
     </style>
 </head>
 <body>
-<h2 style='text-align: center;'>Lista de Usuarios</h2>";
+<h2 style="text-align: center;">Lista de Usuarios</h2>
 
-if ($result) {
-    echo "<table>
+<?php if (!empty($users)): ?>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+        </tr>
+        <?php foreach ($users as $user): ?>
             <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Email</th>
-            </tr>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>
-                <td>" . htmlspecialchars($row['user_id']) . "</td>
-                <td>" . htmlspecialchars($row['name']) . "</td>
-                <td>" . htmlspecialchars($row['email']) . "</td>
-              </tr>";
-    }
-    echo "</table>";
-    $result->free();
-} else {
-    echo "<p>Error al consultar datos: " . htmlspecialchars($mysqli->error) . "</p>";
-}
+                <td><?= esc($user['user_id']) ?></td>
+                <td><?= esc($user['name']) ?></td>
+                <td><?= esc($user['email']) ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+<?php else: ?>
+    <p style="text-align:center;">No hay usuarios.</p>
+<?php endif; ?>
 
-echo "</body></html>";
-
-$mysqli->close();
-?>
+</body>
+</html>
