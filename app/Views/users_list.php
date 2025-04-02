@@ -1,17 +1,23 @@
 <?php
 
-// Asegúrate de que, si usas este script fuera del flujo normal de CI,
-// tengas los require adecuados para bootstrap (por ejemplo):
-// require_once __DIR__ . '/../../vendor/autoload.php';
-// require_once __DIR__ . '/../../app/Config/Boot/development.php';
+use Config\Database;
 
-use \Config\Database;
+$mysqli = mysqli_init();
+$dbconfig = new Database();
 
-// Obtenemos la conexión principal (usará los valores de .env por defecto)
-$db = Database::connect();
+// Obtenemos los datos desde la instancia de configuración
+$hostname = $dbconfig->default['hostname'];
+$port     = $dbconfig->default['port'];
+$user     = $dbconfig->default['username'];
+$password = $dbconfig->default['password'];
+$database = $dbconfig->default['database'];
 
-// De la conexión $db obtenemos el objeto mysqli nativo:
-$mysqli = $db->connID;
+// Intentamos conectar con MySQL usando mysqli manualmente
+$mysqliConnected = $mysqli->real_connect($hostname, $user, $password, $database, $port, null, MYSQLI_CLIENT_SSL);
+
+if (!$mysqliConnected) {
+    die("<p>Error de conexión: " . htmlspecialchars($mysqli->connect_error) . "</p>");
+}
 
 $query = "SELECT user_id, name, email FROM users";
 $result = $mysqli->query($query);
@@ -54,3 +60,4 @@ if ($result) {
 echo "</body></html>";
 
 $mysqli->close();
+?>
