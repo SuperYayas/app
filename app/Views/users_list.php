@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,6 +32,16 @@
 <?php else: ?>
     <p style="text-align:center;">No hay usuarios.</p>
 <?php endif; ?>
+<?php 
+use \Config\Database;
+$db = Database::connect();
+$query = $db->query("SELECT * FROM users");
+$users = $query->getResultArray();
 
+echo "<pre>";
+print_r($users);
+echo "</pre>";
+
+?>
 </body>
 </html>
