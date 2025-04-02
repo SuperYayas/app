@@ -34,7 +34,7 @@
 <?php endif; ?>
 <?php 
 use \Config\Database;
-$db = Database::connect();
+$db = db_connect();
 $query = $db->query("SELECT * FROM users");
 $users = $query->getResultArray();
 
