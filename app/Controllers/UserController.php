@@ -4,25 +4,27 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 
+use \Config\Database;
+
 class UserController extends BaseController
 {
     public function index()
     {
-        $userModel = new UserModel();
 
-        // Intenta ejecutar la consulta manualmente con logging activado
-        $users = $userModel->findAll();
-
-        // Debug: muestra los datos obtenidos crudos
-        echo "<pre>";
-        print_r($users);
-        echo "</pre>";
-
-        // También puedes habilitar el query log para inspeccionar qué se está ejecutando
+        // Conexión a la base de datos
         $db = \Config\Database::connect();
-        $queries = $db->getLastQuery();
-        echo "Última consulta ejecutada: " . $queries;
+        
+        // Ejecutar la consulta
+        $query = $db->query("SELECT * FROM users");
+        
+        // Obtener resultados como array asociativo
+        $users = $query->getResultArray();
 
+        // Cerrar conexión si quieres
+        $db->close();
+
+        // Pasar los datos a la vista
         return view('users_list', ['users' => $users]);
+
     }
 }

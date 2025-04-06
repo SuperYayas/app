@@ -6,4 +6,5 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('usuarios', 'UserController::index');
+$routes->get('/usuarios', 'UserController::index');
+

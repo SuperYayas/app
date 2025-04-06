@@ -14,7 +14,6 @@
 <body>
 <h2 style="text-align: center;">Lista de Usuarios</h2>
 
-<?php if (!empty($users)): ?>
     <table>
         <tr>
             <th>ID</th>
@@ -29,19 +28,12 @@
             </tr>
         <?php endforeach; ?>
     </table>
-<?php else: ?>
-    <p style="text-align:center;">No hay usuarios.</p>
-<?php endif; ?>
-<?php 
-use \Config\Database;
-$db = db_connect();
-$query = $db->query("SELECT * FROM users");
-$users = $query->getResultArray();
 
-echo "<pre>";
-print_r($users);
-echo "</pre>";
 
-?>
+<pre>
+
+
+
+</pre>
 </body>
 </html>
