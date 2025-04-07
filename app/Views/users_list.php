@@ -1,17 +1,16 @@
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Usuarios</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        table { border-collapse: collapse; width: 60%; margin: 20px auto; }
-        th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
-        th { background-color: #f2f2f2; }
-    </style>
-</head>
-<body>
+
+<?= $this->extend('layouts/main') ?>
+
+<?= $this->section('styles') ?>
+<link rel="stylesheet" href="<?= base_url('assets/css/styles.css') ?>">
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
+
+
+<section id="super-main" class="super-container">
+   
 <h2 style="text-align: center;">Lista de Usuarios</h2>
 
     <table>
@@ -30,10 +29,11 @@
     </table>
 
 
-<pre>
 
+</section>
 
+<?= $this->endSection() ?>
 
-</pre>
-</body>
-</html>
+<?= $this->section('scripts') ?>
+<script src="<?= base_url('assets/js/home.js') ?>"></script>
+<?= $this->endSection() ?>
