@@ -5,21 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La Yaya</title>
+    <link rel="stylesheet" href="<?= view('styles.css') ?>">
 
-
-    <style>
-        <?= view('../assets/css/styles.css') ?>
-    </style>
+    
 </head>
 
 <body>
 
 <?= view('includes/header') ?>
 
+
+   
+
     <main id="super-main" class="super-container">
         <!-- 🔍 Barra de búsqueda -->
         <div class="search-container">
-            <span class="search-icon">🔍</span> 
+            <span class="search-icon">🔍</span>
             <input type="text" id="searchInput" placeholder="Buscar ítem..." onkeyup="filterItems()" />
         </div>
 
