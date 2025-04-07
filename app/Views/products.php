@@ -37,14 +37,6 @@
     </div>
 </section>
 
-<!-- 📱 Menú Hamburguesa para móviles -->
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
-<div class="mobile-menu" id="mobileMenu">
-    <a href="#">Producto</a>
-    <a href="#">Supers</a>
-    <a href="#">Tickets</a>
-    <a href="#">Usuario</a>
-</div>
 
 <script>
     function toggleTheme() {
