@@ -19,6 +19,6 @@ class ProductController extends BaseController
         $db->close();
 
 
-        return view('products_index', ['products' => $products]);
+        return view('products', ['products' => $products]);
     }
 }

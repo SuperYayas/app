@@ -1,10 +1,22 @@
-<footer class="pie">
-    <h2>Sobre Nosotros</h2>
-    <p>Este sitio web está dedicado a ofrecer los mejores servicios para nuestros usuarios. 
-    Nos comprometemos a garantizar la calidad y satisfacción en todos nuestros productos.</p>
-    
-    <div class="legal">
-        <p>© 2024 Mi Empresa. Todos los derechos reservados.</p>
-        <p><a href="#">Aviso Legal</a> | <a href="#">Política de Privacidad</a></p>
-    </div>
-</footer>
+<footer id="super-footer">
+        <div class="super-container">
+            <ul>
+                <li><a href="">TikTok</a></li>
+                <li><a href="">Instagram</a></li>
+                <li><a href="">Facebook</a></li>
+                <li><a href="">Twitter/X</a></li>
+            </ul>
+            <ul>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Reports</a></li>
+                <li><a href="">Cookies</a></li>
+            </ul>
+            <ul>
+                <li><a href="">Use Conditions</a></li>
+                <li><a href="">Legal Adivice</a></li>
+                <li><a href="">Data Privacy</a></li>
+                <li><a href="">Staments</a></li>
+            </ul>
+        </div>
+    </footer>

@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('styles') ?>
-    <link rel="stylesheet" href="<?= base_url('assets/css/home.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/styles.css') ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
