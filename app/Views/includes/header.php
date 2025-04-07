@@ -4,7 +4,7 @@
         <a href="/products">Productos</a>
         <a href="#">Supers</a>
         <a href="#">Tickets</a>
-        <a href="#">Usuario</a>
+        <a href="/users">Usuarios</a>
         <button class="toggle-btn" onclick="toggleTheme()">.</button>
     </nav>
 </header>
